@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ほめキャス</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
-    <h1>ほめキャス</h1>
+    <h1>ほめキャス 🧡</h1>
   </header>
 
   <main>
-    <section id="task-list">
-      <h2>動画作成タスクリスト</h2>
-      <ol id="steps-container">
-        <!-- JSでSTEP0〜STEP13を生成 -->
-      </ol>
-    </section>
+    <h2>🎬 動画作成タスクリスト</h2>
+    <ol>
+      <li>
+        <h3>STEP0：目標設定・コンセプト決め</h3>
+        <ul>
+          <li><input type="checkbox" class="task-check" id="task0-1" /><label for="task0-1">目的を定める</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check" id="task0-2" /><label for="task0-2">ターゲットを明確化</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check" id="task0-3" /><label for="task0-3">動画ジャンルを決定</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check" id="task0-4" /><label for="task0-4">成功の定義を決める</label><div class="message"></div></li>
+        </ul>
+        <textarea placeholder="コンセプトのメモ"></textarea>
+      </li>
+      
+      <!-- STEP1 ～ STEP13 も同様に続く。以下は省略例 -->
 
-    <section class="button-area">
-      <button onclick="saveProgress()">💾 保存する</button>
-      <button onclick="loadProgress()">📂 保存した内容を読み込み</button>
-      <button onclick="clearProgress()">🗑️ 保存内容を削除</button>
-      <p id="status"></p>
-    </section>
+      <li>
+        <h3>STEP13：継続計画</h3>
+        <ul>
+          <li><input type="checkbox" class="task-check" id="task13-1" /><label for="task13-1">次回アイデアメモ</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check" id="task13-2" /><label for="task13-2">投稿カレンダー更新</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check" id="task13-3" /><label for="task13-3">モチベーション管理</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check" id="task13-4" /><label for="task13-4">チーム振り返り</label><div class="message"></div></li>
+        </ul>
+        <textarea placeholder="継続のためのメモ"></textarea>
+      </li>
+
+    </ol>
   </main>
 
+  <footer>
+    <p>&copy; 2024 ほめキャス</p>
+  </footer>
   <script src="script.js"></script>
 </body>
+
 </html>
