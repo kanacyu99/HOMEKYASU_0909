@@ -1,93 +1,52 @@
-<!-- 保存一覧を表示するエリア -->
-<section>
-  <h2>📚 保存された過去の入力一覧</h2>
-  <div id="saved-entries"></div>
-</section>
+<!DOCTYPE html>
+<html lang="ja">
 
-<script>
-  // 保存されたデータを取得
-  function getSavedData() {
-    return JSON.parse(localStorage.getItem("homerareSteps")) || [];
-  }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ほめキャス</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-  // 保存データをセット
-  function setSavedData(data) {
-    localStorage.setItem("homerareSteps", JSON.stringify(data));
-  }
+<body>
+  <header>
+    <h1>ほめキャス 🧡</h1>
+  </header>
 
-  // 削除処理
-  function deleteEntry(index) {
-    const data = getSavedData();
-    data.splice(index, 1);
-    setSavedData(data);
-    displaySavedEntries();
-  }
-
-  // 復元処理
-  function restoreEntry(index) {
-    const data = getSavedData();
-    const steps = data[index].steps;
-    steps.forEach((stepData, stepIndex) => {
-      const inputs = document.querySelectorAll(`.step${stepIndex}`);
-      stepData.forEach((val, i) => {
-        if (inputs[i]) inputs[i].value = val;
-      });
-    });
-    updateProgress();
-    alert("この記録を復元しました！");
-  }
-
-  // 表示処理
-  function displaySavedEntries() {
-    const savedData = getSavedData();
-    const container = document.getElementById("saved-entries");
-    container.innerHTML = "";
-
-    if (savedData.length === 0) {
-      container.innerHTML = "<p>保存された記録はまだありません。</p>";
-      return;
-    }
-
-    savedData.forEach((entry, index) => {
-      const entryDiv = document.createElement("div");
-      entryDiv.classList.add("saved-entry");
-      entryDiv.innerHTML = `
-        <h3>記録 ${index + 1}（${entry.timestamp}）</h3>
+  <main>
+    <h2>📓 動画作成タスクリスト</h2>
+    <p id="progress-message">📋 達成の確認はここに表示されます</p>
+    <ol>
+      <li>
+        <h3>STEP0：目標設定・コンセプト決め</h3>
         <ul>
-          ${entry.steps
-            .map((step, i) => `<li><strong>STEP${i}:</strong> ${step.join(", ")}</li>`)
-            .join("")}
+          <li>目的を定める：<input id="step0-1" class="step0" /></li>
+          <li>ターゲットを明確化：<input id="step0-2" class="step0" /></li>
+          <li>動画ジャンルを決定：<input id="step0-3" class="step0" /></li>
+          <li>成功の定義：<input id="step0-4" class="step0" /></li>
         </ul>
-        <button onclick="restoreEntry(${index})">この記録を復元</button>
-        <button onclick="deleteEntry(${index})">削除</button>
-        <hr />
-      `;
-      container.appendChild(entryDiv);
-    });
-  }
+      </li>
+      <!-- STEP1 から STEP12 省略。必要に応じて追加してください -->
+      <li>
+        <h3>STEP13：継続計画</h3>
+        <ul>
+          <li>次回アイデアメモ：<input id="step13-1" class="step13" /></li>
+          <li>投稿カレンダー更新：<input id="step13-2" class="step13" /></li>
+          <li>モチベーション管理：<input id="step13-3" class="step13" /></li>
+          <li>チーム振り返り：<input id="step13-4" class="step13" /></li>
+        </ul>
+      </li>
+    </ol>
 
-  // 初期表示
-  window.addEventListener("DOMContentLoaded", () => {
-    displaySavedEntries();
-  });
-</script>
+    <div style="text-align: center; margin-top: 20px;">
+      <button onclick="saveCurrentData()">💾 入力内容を保存する</button>
+    </div>
+  </main>
 
-<style>
-  .saved-entry {
-    background: #fff7ec;
-    padding: 1em;
-    border-radius: 8px;
-    margin-bottom: 1em;
-  }
-  .saved-entry button {
-    margin-right: 0.5em;
-    background: #ffcc80;
-    border: none;
-    padding: 0.4em 0.8em;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .saved-entry button:hover {
-    background: #ffb74d;
-  }
-</style>
+  <footer>
+    <p>&copy; 2024 ほめキャス</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
