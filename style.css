@@ -1,75 +1,63 @@
 body {
-  font-family: 'sans-serif';
-  background: #f8fff9;
+  font-family: "Helvetica", sans-serif;
+  margin: 0;
+  padding: 1rem;
+  background: #fffef9;
   color: #333;
-  padding: 20px;
+}
+
+header {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 h1 {
-  color: #27ae60;
+  color: #f28500;
+  font-size: 2rem;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+section {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
 }
 
-li {
-  margin: 12px 0;
+h2 {
+  margin-bottom: 1rem;
+  color: #f36c00;
 }
 
-#message-box {
-  margin-top: 30px;
-  position: relative;
-  height: 60px;
+h3 {
+  margin-top: 1.5rem;
+  color: #f36c00;
 }
 
-.message {
-  display: inline-block;
-  background: #ffeaa7;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 1.2rem;
-  animation: fadeOut 3s forwards;
-}
-
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-20px); }
-}
-.hint {
-  background: #e3f9ff;
-  border-left: 5px solid #00aaff;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  margin: 8px auto 16px;
-  max-width: 600px;
-  text-align: left;
-}
-.input-box {
+textarea {
   width: 100%;
-  max-width: 600px;
-  height: 60px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  padding: 8px;
-  font-size: 0.9rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  resize: vertical;
+  height: 100px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
 }
-/* タイトルだけ中央寄せ */
-h1 {
+
+.hint {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.button-area {
   text-align: center;
 }
 
-/* それ以外すべて左寄せに統一 */
-h2, h3, ul, li, .hint {
-  text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 600px;
+button {
+  background-color: #f28500;
+  color: white;
+  padding: 10px 20px;
+  margin: 0.3rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e06d00;
 }
