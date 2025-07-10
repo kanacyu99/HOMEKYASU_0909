@@ -1,163 +1,93 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!-- 保存一覧を表示するエリア -->
+<section>
+  <h2>📚 保存された過去の入力一覧</h2>
+  <div id="saved-entries"></div>
+</section>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ほめキャス</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+<script>
+  // 保存されたデータを取得
+  function getSavedData() {
+    return JSON.parse(localStorage.getItem("homerareSteps")) || [];
+  }
 
-<body>
-  <header>
-    <h1>ほめキャス 🧡</h1>
-  </header>
+  // 保存データをセット
+  function setSavedData(data) {
+    localStorage.setItem("homerareSteps", JSON.stringify(data));
+  }
 
-  <main>
-    <h2>📔 動画作成タスクリスト</h2>
-    <p id="progress-message">✅ 現在の達成数：0 / 13</p>
-    <ol>
-      <!-- STEP0 -->
-      <li>
-        <h3>STEP0：目標設定・コンセプト決め</h3>
+  // 削除処理
+  function deleteEntry(index) {
+    const data = getSavedData();
+    data.splice(index, 1);
+    setSavedData(data);
+    displaySavedEntries();
+  }
+
+  // 復元処理
+  function restoreEntry(index) {
+    const data = getSavedData();
+    const steps = data[index].steps;
+    steps.forEach((stepData, stepIndex) => {
+      const inputs = document.querySelectorAll(`.step${stepIndex}`);
+      stepData.forEach((val, i) => {
+        if (inputs[i]) inputs[i].value = val;
+      });
+    });
+    updateProgress();
+    alert("この記録を復元しました！");
+  }
+
+  // 表示処理
+  function displaySavedEntries() {
+    const savedData = getSavedData();
+    const container = document.getElementById("saved-entries");
+    container.innerHTML = "";
+
+    if (savedData.length === 0) {
+      container.innerHTML = "<p>保存された記録はまだありません。</p>";
+      return;
+    }
+
+    savedData.forEach((entry, index) => {
+      const entryDiv = document.createElement("div");
+      entryDiv.classList.add("saved-entry");
+      entryDiv.innerHTML = `
+        <h3>記録 ${index + 1}（${entry.timestamp}）</h3>
         <ul>
-          <li>目的を定める <input class="step0" /></li>
-          <li>ターゲットを明確化 <input class="step0" /></li>
-          <li>動画ジャンルを決定 <input class="step0" /></li>
-          <li>成功の定義 <input class="step0" /></li>
+          ${entry.steps
+            .map((step, i) => `<li><strong>STEP${i}:</strong> ${step.join(", ")}</li>`)
+            .join("")}
         </ul>
-      </li>
+        <button onclick="restoreEntry(${index})">この記録を復元</button>
+        <button onclick="deleteEntry(${index})">削除</button>
+        <hr />
+      `;
+      container.appendChild(entryDiv);
+    });
+  }
 
-      <!-- STEP1～12 -->
-      <!-- テンプレートで順に出力 -->
-      <!-- 各ステップに3つの入力欄を用意 -->
-      <li>
-        <h3>STEP1：アイデア出し・企画</h3>
-        <ul>
-          <li>テーマ案・差別化ポイント <input class="step1" /></li>
-          <li>参考動画のリサーチ <input class="step1" /></li>
-          <li>構成要素のリスト <input class="step1" /></li>
-        </ul>
-      </li>
+  // 初期表示
+  window.addEventListener("DOMContentLoaded", () => {
+    displaySavedEntries();
+  });
+</script>
 
-      <li>
-        <h3>STEP2：台本・構成設計</h3>
-        <ul>
-          <li>導入・本編・まとめを決める <input class="step2" /></li>
-          <li>セリフ・ナレーション案 <input class="step2" /></li>
-          <li>BGMや演出の構想 <input class="step2" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP3：撮影計画・準備</h3>
-        <ul>
-          <li>スケジュール・ロケ地決め <input class="step3" /></li>
-          <li>機材チェック <input class="step3" /></li>
-          <li>衣装・小道具の用意 <input class="step3" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP4：撮影</h3>
-        <ul>
-          <li>セットアップ・音声チェック <input class="step4" /></li>
-          <li>本番撮影・リテイク管理 <input class="step4" /></li>
-          <li>バックアップ保存 <input class="step4" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP5：素材整理・管理</h3>
-        <ul>
-          <li>素材の取り込み <input class="step5" /></li>
-          <li>ファイル名や整理 <input class="step5" /></li>
-          <li>良いテイクの選定 <input class="step5" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP6：編集（ポストプロダクション）</h3>
-        <ul>
-          <li>カット編集・構成 <input class="step6" /></li>
-          <li>字幕・BGM・効果挿入 <input class="step6" /></li>
-          <li>色調整・プレビュー <input class="step6" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP7：レビュー・修正</h3>
-        <ul>
-          <li>自分やメンバーで確認 <input class="step7" /></li>
-          <li>フィードバック反映 <input class="step7" /></li>
-          <li>最終チェック <input class="step7" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP8：書き出し（レンダリング）</h3>
-        <ul>
-          <li>適切な解像度とコーデック選定 <input class="step8" /></li>
-          <li>ファイルサイズ調整 <input class="step8" /></li>
-          <li>書き出し＆再生確認 <input class="step8" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP9：サムネイル・説明文作成</h3>
-        <ul>
-          <li>サムネイルデザイン <input class="step9" /></li>
-          <li>タイトルと説明文 <input class="step9" /></li>
-          <li>SEO・タグの設定 <input class="step9" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP10：公開準備</h3>
-        <ul>
-          <li>投稿先プラットフォーム設定 <input class="step10" /></li>
-          <li>公開スケジュール設定 <input class="step10" /></li>
-          <li>最終確認 <input class="step10" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP11：公開</h3>
-        <ul>
-          <li>アップロード <input class="step11" /></li>
-          <li>告知・共有 <input class="step11" /></li>
-          <li>SNS・ブログ投稿 <input class="step11" /></li>
-        </ul>
-      </li>
-
-      <li>
-        <h3>STEP12：分析・改善</h3>
-        <ul>
-          <li>視聴データの確認 <input class="step12" /></li>
-          <li>コメント・反応分析 <input class="step12" /></li>
-          <li>改善ポイントまとめ <input class="step12" /></li>
-        </ul>
-      </li>
-
-      <!-- STEP13 -->
-      <li>
-        <h3>STEP13：継続計画</h3>
-        <ul>
-          <li>次回アイデアメモ <input class="step13" /></li>
-          <li>投稿カレンダー更新 <input class="step13" /></li>
-          <li>モチベーション管理 <input class="step13" /></li>
-          <li>チーム振り返り <input class="step13" /></li>
-        </ul>
-      </li>
-
-    </ol>
-  </main>
-
-  <footer>
-    <p>&copy; 2024 ほめキャス</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-
-</html>
+<style>
+  .saved-entry {
+    background: #fff7ec;
+    padding: 1em;
+    border-radius: 8px;
+    margin-bottom: 1em;
+  }
+  .saved-entry button {
+    margin-right: 0.5em;
+    background: #ffcc80;
+    border: none;
+    padding: 0.4em 0.8em;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .saved-entry button:hover {
+    background: #ffb74d;
+  }
+</style>
