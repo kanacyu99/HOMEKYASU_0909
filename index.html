@@ -15,37 +15,41 @@
 
   <main>
     <h2>🎬 動画作成タスクリスト</h2>
+
+    <!-- ✅ 達成数表示エリアを追加 -->
+    <div id="progress-message" style="font-weight: bold; color: green;"></div>
+
     <ol>
       <li>
         <h3>STEP0：目標設定・コンセプト決め</h3>
         <ul>
-          <li><input type="checkbox" class="task-check" id="task0-1" /><label for="task0-1">目的を定める</label><div class="message"></div></li>
-          <li><input type="checkbox" class="task-check" id="task0-2" /><label for="task0-2">ターゲットを明確化</label><div class="message"></div></li>
-          <li><input type="checkbox" class="task-check" id="task0-3" /><label for="task0-3">動画ジャンルを決定</label><div class="message"></div></li>
-          <li><input type="checkbox" class="task-check" id="task0-4" /><label for="task0-4">成功の定義を決める</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check step0" id="task0-1" /><label for="task0-1">目的を定める</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check step0" id="task0-2" /><label for="task0-2">ターゲットを明確化</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check step0" id="task0-3" /><label for="task0-3">動画ジャンルを決定</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check step0" id="task0-4" /><label for="task0-4">成功の定義を決める</label><div class="message"></div></li>
         </ul>
-        <textarea placeholder="コンセプトのメモ"></textarea>
+        <textarea class="step0" placeholder="コンセプトのメモ"></textarea>
       </li>
-      
-      <!-- STEP1 ～ STEP13 も同様に続く。以下は省略例 -->
+
+      <!-- STEP1 ～ STEP12 も同様に続く（省略中） -->
 
       <li>
         <h3>STEP13：継続計画</h3>
         <ul>
-          <li><input type="checkbox" class="task-check" id="task13-1" /><label for="task13-1">次回アイデアメモ</label><div class="message"></div></li>
-          <li><input type="checkbox" class="task-check" id="task13-2" /><label for="task13-2">投稿カレンダー更新</label><div class="message"></div></li>
-          <li><input type="checkbox" class="task-check" id="task13-3" /><label for="task13-3">モチベーション管理</label><div class="message"></div></li>
-          <li><input type="checkbox" class="task-check" id="task13-4" /><label for="task13-4">チーム振り返り</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check step13" id="task13-1" /><label for="task13-1">次回アイデアメモ</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check step13" id="task13-2" /><label for="task13-2">投稿カレンダー更新</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check step13" id="task13-3" /><label for="task13-3">モチベーション管理</label><div class="message"></div></li>
+          <li><input type="checkbox" class="task-check step13" id="task13-4" /><label for="task13-4">チーム振り返り</label><div class="message"></div></li>
         </ul>
-        <textarea placeholder="継続のためのメモ"></textarea>
+        <textarea class="step13" placeholder="継続のためのメモ"></textarea>
       </li>
-
     </ol>
   </main>
 
   <footer>
     <p>&copy; 2024 ほめキャス</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 
