@@ -15,37 +15,61 @@
 
   <main>
     <h2>📓 動画作成タスクリスト</h2>
-    <p id="progress-message">📋 達成の確認はここに表示されます</p>
+    <p id="progress-message">✅ 現在の達成数：0 / 14</p>
+
     <ol>
+      <!-- STEP0 -->
       <li>
         <h3>STEP0：目標設定・コンセプト決め</h3>
         <ul>
-          <li>目的を定める：<input id="step0-1" class="step0" /></li>
-          <li>ターゲットを明確化：<input id="step0-2" class="step0" /></li>
-          <li>動画ジャンルを決定：<input id="step0-3" class="step0" /></li>
-          <li>成功の定義：<input id="step0-4" class="step0" /></li>
+          <li>目的を定める：<input type="text" class="step0" /></li>
+          <li>ターゲットを明確化：<input type="text" class="step0" /></li>
+          <li>動画ジャンルを決定：<input type="text" class="step0" /></li>
+          <li>成功の定義：<input type="text" class="step0" /></li>
         </ul>
       </li>
-      <!-- STEP1 から STEP12 省略。必要に応じて追加してください -->
+
+      <!-- STEP1〜STEP12 繰り返し構造 -->
+      <script>
+        const steps = [
+          "アイデア出し・企画", "台本・構成設計", "撮影計画・準備", "撮影",
+          "素材整理・管理", "編集（ポストプロダクション）", "レビュー・修正",
+          "書き出し（レンダリング）", "サムネイル・説明文作成", "公開準備",
+          "公開", "分析・改善"
+        ];
+        steps.forEach((title, i) => {
+          document.write(`
+            <li>
+              <h3>STEP${i + 1}：${title}</h3>
+              <ul>
+                <li>詳細項目1：<input type="text" class="step${i + 1}" /></li>
+                <li>詳細項目2：<input type="text" class="step${i + 1}" /></li>
+                <li>詳細項目3：<input type="text" class="step${i + 1}" /></li>
+              </ul>
+            </li>
+          `);
+        });
+      </script>
+
+      <!-- STEP13 -->
       <li>
         <h3>STEP13：継続計画</h3>
         <ul>
-          <li>次回アイデアメモ：<input id="step13-1" class="step13" /></li>
-          <li>投稿カレンダー更新：<input id="step13-2" class="step13" /></li>
-          <li>モチベーション管理：<input id="step13-3" class="step13" /></li>
-          <li>チーム振り返り：<input id="step13-4" class="step13" /></li>
+          <li>次回アイデアメモ：<input type="text" class="step13" /></li>
+          <li>投稿カレンダー更新：<input type="text" class="step13" /></li>
+          <li>モチベーション管理：<input type="text" class="step13" /></li>
+          <li>チーム振り返り：<input type="text" class="step13" /></li>
         </ul>
       </li>
     </ol>
 
-    <div style="text-align: center; margin-top: 20px;">
-      <button onclick="saveCurrentData()">💾 入力内容を保存する</button>
-    </div>
+    <button onclick="saveInput()">💾 入力内容を保存する</button>
   </main>
 
   <footer>
     <p>&copy; 2024 ほめキャス</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 
