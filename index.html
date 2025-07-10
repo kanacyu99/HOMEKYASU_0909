@@ -1,187 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ほめキャス</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ほめキャス</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>ほめキャス</h1>
-    </header>
-    <main>
-        <section id="task-list">
-            <h2>動画作成タスクリスト</h2>
-            <ol>
-                <li>
-                    <input type="checkbox" id="task0" name="task0">
-                    <label for="task0">【0. 目標設定・コンセプト決め】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task0-1" name="task0-1"><label for="task0-1">目的を定める（誰に、何を、どんな感情を与えるか）</label></li>
-                        <li><input type="checkbox" id="task0-2" name="task0-2"><label for="task0-2">視聴者ターゲットを明確化</label></li>
-                        <li><input type="checkbox" id="task0-3" name="task0-3"><label for="task0-3">動画ジャンルを決定</label></li>
-                        <li><input type="checkbox" id="task0-4" name="task0-4"><label for="task0-4">成功の定義</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task1" name="task1">
-                    <label for="task1">【1. アイデア出し・企画】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task1-1" name="task1-1"><label for="task1-1">テーマ出し</label></li>
-                        <li><input type="checkbox" id="task1-2" name="task1-2"><label for="task1-2">タイトル案検討</label></li>
-                        <li><input type="checkbox" id="task1-3" name="task1-3"><label for="task1-3">方向性決定</label></li>
-                        <li><input type="checkbox" id="task1-4" name="task1-4"><label for="task1-4">差別化ポイントを整理</label></li>
-                        <li><input type="checkbox" id="task1-5" name="task1-5"><label for="task1-5">構成要素リスト作成</label></li>
-                        <li><input type="checkbox" id="task1-6" name="task1-6"><label for="task1-6">競合・参考動画リサーチ</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task2" name="task2">
-                    <label for="task2">【2. 台本・構成設計】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task2-1" name="task2-1"><label for="task2-1">大枠構成を決める</label></li>
-                        <li><input type="checkbox" id="task2-2" name="task2-2"><label for="task2-2">詳細な台本執筆</label></li>
-                        <li><input type="checkbox" id="task2-3" name="task2-3"><label for="task2-3">セリフ・ナレーション原稿作成</label></li>
-                        <li><input type="checkbox" id="task2-4" name="task2-4"><label for="task2-4">ストーリーボード</label></li>
-                        <li><input type="checkbox" id="task2-5" name="task2-5"><label for="task2-5">カット割り計画</label></li>
-                        <li><input type="checkbox" id="task2-6" name="task2-6"><label for="task2-6">BGM/効果音のイメージ</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task3" name="task3">
-                    <label for="task3">【3. 撮影計画・準備】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task3-1" name="task3-1"><label for="task3-1">撮影スケジュール決定</label></li>
-                        <li><input type="checkbox" id="task3-2" name="task3-2"><label for="task3-2">ロケーション選定</label></li>
-                        <li><input type="checkbox" id="task3-3" name="task3-3"><label for="task3-3">照明プラン検討</label></li>
-                        <li><input type="checkbox" id="task3-4" name="task3-4"><label for="task3-4">カメラアングルプラン</label></li>
-                        <li><input type="checkbox" id="task3-5" name="task3-5"><label for="task3-5">撮影機材チェック</label></li>
-                        <li><input type="checkbox" id="task3-6" name="task3-6"><label for="task3-6">小道具/衣装用意</label></li>
-                        <li><input type="checkbox" id="task3-7" name="task3-7"><label for="task3-7">キャスト・スタッフ調整</label></li>
-                        <li><input type="checkbox" id="task3-8" name="task3-8"><label for="task3-8">セリフ練習</label></li>
-                        <li><input type="checkbox" id="task3-9" name="task3-9"><label for="task3-9">撮影許可手続き</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task4" name="task4">
-                    <label for="task4">【4. 撮影】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task4-1" name="task4-1"><label for="task4-1">セットアップ</label></li>
-                        <li><input type="checkbox" id="task4-2" name="task4-2"><label for="task4-2">音声チェック</label></li>
-                        <li><input type="checkbox" id="task4-3" name="task4-3"><label for="task4-3">テスト撮影</label></li>
-                        <li><input type="checkbox" id="task4-4" name="task4-4"><label for="task4-4">本番撮影</label></li>
-                        <li><input type="checkbox" id="task4-5" name="task4-5"><label for="task4-5">進行管理</label></li>
-                        <li><input type="checkbox" id="task4-6" name="task4-6"><label for="task4-6">バックアップ保存</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task5" name="task5">
-                    <label for="task5">【5. 素材整理・管理】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task5-1" name="task5-1"><label for="task5-1">フッテージ取り込み</label></li>
-                        <li><input type="checkbox" id="task5-2" name="task5-2"><label for="task5-2">ファイル名整理</label></li>
-                        <li><input type="checkbox" id="task5-3" name="task5-3"><label for="task5-3">バックアップ作成</label></li>
-                        <li><input type="checkbox" id="task5-4" name="task5-4"><label for="task5-4">良いテイクの選定</label></li>
-                        <li><input type="checkbox" id="task5-5" name="task5-5"><label for="task5-5">必要な素材タグ付け</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task6" name="task6">
-                    <label for="task6">【6. 編集（ポストプロダクション）】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task6-1" name="task6-1"><label for="task6-1">編集用プロジェクト作成</label></li>
-                        <li><input type="checkbox" id="task6-2" name="task6-2"><label for="task6-2">カット編集</label></li>
-                        <li><input type="checkbox" id="task6-3" name="task6-3"><label for="task6-3">シーン構成調整</label></li>
-                        <li><input type="checkbox" id="task6-4" name="task6-4"><label for="task6-4">音声編集</label></li>
-                        <li><input type="checkbox" id="task6-5" name="task6-5"><label for="task6-5">BGM/効果音挿入</label></li>
-                        <li><input type="checkbox" id="task6-6" name="task6-6"><label for="task6-6">テロップ・字幕作成</label></li>
-                        <li><input type="checkbox" id="task6-7" name="task6-7"><label for="task6-7">画像/グラフィック挿入</label></li>
-                        <li><input type="checkbox" id="task6-8" name="task6-8"><label for="task6-8">トランジション調整</label></li>
-                        <li><input type="checkbox" id="task6-9" name="task6-9"><label for="task6-9">色調整・カラーグレーディング</label></li>
-                        <li><input type="checkbox" id="task6-10" name="task6-10"><label for="task6-10">特殊効果</label></li>
-                        <li><input type="checkbox" id="task6-11" name="task6-11"><label for="task6-11">仮書き出し・プレビュー確認</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task7" name="task7">
-                    <label for="task7">【7. レビュー・修正】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task7-1" name="task7-1"><label for="task7-1">自分で確認</label></li>
-                        <li><input type="checkbox" id="task7-2" name="task7-2"><label for="task7-2">チームメンバーやクライアントに確認依頼</label></li>
-                        <li><input type="checkbox" id="task7-3" name="task7-3"><label for="task7-3">フィードバック収集</label></li>
-                        <li><input type="checkbox" id="task7-4" name="task7-4"><label for="task7-4">修正実施</label></li>
-                        <li><input type="checkbox" id="task7-5" name="task7-5"><label for="task7-5">最終チェック</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task8" name="task8">
-                    <label for="task8">【8. 書き出し（レンダリング）】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task8-1" name="task8-1"><label for="task8-1">適切な解像度・フレームレート設定</label></li>
-                        <li><input type="checkbox" id="task8-2" name="task8-2"><label for="task8-2">コーデック選択</label></li>
-                        <li><input type="checkbox" id="task8-3" name="task8-3"><label for="task8-3">ファイルサイズ最適化</label></li>
-                        <li><input type="checkbox" id="task8-4" name="task8-4"><label for="task8-4">書き出し</label></li>
-                        <li><input type="checkbox" id="task8-5" name="task8-5"><label for="task8-5">書き出し後の再生確認</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task9" name="task9">
-                    <label for="task9">【9. サムネイル・説明文作成】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task9-1" name="task9-1"><label for="task9-1">キャッチーなサムネイルデザイン</label></li>
-                        <li><input type="checkbox" id="task9-2" name="task9-2"><label for="task9-2">タイトル最適化</label></li>
-                        <li><input type="checkbox" id="task9-3" name="task9-3"><label for="task9-3">SEOキーワード検討</label></li>
-                        <li><input type="checkbox" id="task9-4" name="task9-4"><label for="task9-4">説明文作成</label></li>
-                        <li><input type="checkbox" id="task9-5" name="task9-5"><label for="task9-5">タグ設定</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task10" name="task10">
-                    <label for="task10">【10. 公開準備】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task10-1" name="task10-1"><label for="task10-1">プラットフォーム選定</label></li>
-                        <li><input type="checkbox" id="task10-2" name="task10-2"><label for="task10-2">スケジュール設定</label></li>
-                        <li><input type="checkbox" id="task10-3" name="task10-3"><label for="task10-3">チャンネル管理</label></li>
-                        <li><input type="checkbox" id="task10-4" name="task10-4"><label for="task10-4">公開前最終確認</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task11" name="task11">
-                    <label for="task11">【11. 公開】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task11-1" name="task11-1"><label for="task11-1">動画アップロード</label></li>
-                        <li><input type="checkbox" id="task11-2" name="task11-2"><label for="task11-2">公開設定</label></li>
-                        <li><input type="checkbox" id="task11-3" name="task11-3"><label for="task11-3">SNSやブログへの告知</label></li>
-                        <li><input type="checkbox" id="task11-4" name="task11-4"><label for="task11-4">メーリングリスト、コミュニティ投稿</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task12" name="task12">
-                    <label for="task12">【12. 分析・改善】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task12-1" name="task12-1"><label for="task12-1">視聴データ分析</label></li>
-                        <li><input type="checkbox" id="task12-2" name="task12-2"><label for="task12-2">コメント・反応確認</label></li>
-                        <li><input type="checkbox" id="task12-3" name="task12-3"><label for="task12-3">反省点整理</label></li>
-                        <li><input type="checkbox" id="task12-4" name="task12-4"><label for="task12-4">次回の企画へのフィードバック</label></li>
-                    </ul>
-                </li>
-                <li>
-                    <input type="checkbox" id="task13" name="task13">
-                    <label for="task13">【13. 継続計画】</label>
-                    <ul>
-                        <li><input type="checkbox" id="task13-1" name="task13-1"><label for="task13-1">次回動画のアイデアメモ</label></li>
-                        <li><input type="checkbox" id="task13-2" name="task13-2"><label for="task13-2">投稿カレンダー更新</label></li>
-                        <li><input type="checkbox" id="task13-3" name="task13-3"><label for="task13-3">モチベーション管理</label></li>
-                        <li><input type="checkbox" id="task13-4" name="task13-4"><label for="task13-4">チームとの振り返り</label></li>
-                    </ul>
-                </li>
-            </ol>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 ほめキャス</p>
-    </footer>
-    <script src="script.js"></script>
+  <header>
+    <h1>ほめキャス 🎬</h1>
+  </header>
+
+  <main>
+    <h2>🎯 動画作成タスクリスト</h2>
+    <ul>
+      <li><input type="checkbox" class="task-check" />【0】目標設定・コンセプト決め</li>
+      <li><input type="checkbox" class="task-check" />【1】アイデア出し・企画</li>
+      <li><input type="checkbox" class="task-check" />【2】台本・構成設計</li>
+    </ul>
+    <div id="message-box"></div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
