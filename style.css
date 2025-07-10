@@ -1,78 +1,41 @@
 body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
-    color: #333;
+  font-family: 'sans-serif';
+  background: #f8fff9;
+  color: #333;
+  padding: 20px;
+  text-align: center;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-    margin-bottom: 20px;
+h1 {
+  color: #27ae60;
 }
 
-header h1 {
-    margin: 0;
-}
-
-main {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#task-list h2 {
-    color: #333;
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
-}
-
-ol {
-    list-style: none;
-    padding-left: 0;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 li {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 4px;
+  margin: 12px 0;
 }
 
-li label {
-    font-weight: bold;
+#message-box {
+  margin-top: 30px;
+  position: relative;
+  height: 60px;
 }
 
-li ul {
-    list-style: none;
-    padding-left: 20px;
-    margin-top: 10px;
+.message {
+  display: inline-block;
+  background: #ffeaa7;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  animation: fadeOut 3s forwards;
 }
 
-li ul li {
-    margin-bottom: 8px;
-    background-color: #e9e9e9;
-}
-
-li ul li label {
-    font-weight: normal;
-}
-
-input[type="checkbox"] {
-    margin-right: 10px;
-    transform: scale(1.2); /* チェックボックスを少し大きくする */
-}
-
-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid #ccc;
-    font-size: 0.9em;
-    color: #555;
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-20px); }
 }
