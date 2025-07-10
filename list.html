@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>保存された記録一覧 | ほめキャス</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .record {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #fefefe;
+    }
+    .record button {
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>📂 保存された記録一覧</h1>
+  <div id="records"></div>
+  <p><a href="index.html">← 戻る</a></p>
+
+  <script>
+    const container = document.getElementById("records");
+    const keys = Object.keys(localStorage).filter(k => k.startsWith("homerareData_"));
+
+    if (keys.length === 0) {
+      container.innerHTML = "<p>保存された記録はありません。</p>";
+    } else {
+      keys.sort().reverse();
+      keys.forEach(key => {
+        const data = JSON.parse(localStorage.getItem(key));
+        const div = document.createElement("div");
+        div.className = "record";
+        div.innerHTML = `
+          <strong>${key.replace("homerareData_", "保存日時：")}</strong>
+          <pre>${JSON.stringify(data, null, 2)}</pre>
+          <button onclick="deleteRecord('${key}')">🗑️ 削除</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function deleteRecord(key) {
+      if (confirm("本当に削除しますか？")) {
+        localStorage.removeItem(key);
+        location.reload();
+      }
+    }
+  </script>
+</body>
+
+</html>
