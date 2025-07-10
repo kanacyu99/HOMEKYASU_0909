@@ -49,3 +49,15 @@ li {
   max-width: 600px;
   text-align: left;
 }
+.input-box {
+  width: 100%;
+  max-width: 600px;
+  height: 60px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  padding: 8px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
