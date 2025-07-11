@@ -72,7 +72,6 @@
           const item = document.createElement("div");
           item.className = "record";
 
-          // 整形して表示（keyとvalueを1行ずつ）
           const formatted = Object.entries(entry)
             .map(([key, val]) => `<strong>${key}</strong>: ${val}`)
             .join("<br>");
