@@ -4,12 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ほめキャス</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: sans-serif;
       background: #fffaf3;
       padding: 1em;
+    }
+    h1 {
+      color: #f26522;
     }
     h2 {
       color: #f26522;
@@ -21,6 +23,7 @@
       margin-top: 0.5em;
       color: green;
       font-weight: bold;
+      display: none;
     }
     input {
       margin: 0.2em;
@@ -30,46 +33,156 @@
 <body>
   <h1>📔 ほめキャス</h1>
 
-  <div class="step" id="step0">
-    <h2>1. STEP0：目標設定・コンセプト決め</h2>
-    <ul>
-      <li>目的を定める：<input type="text" /></li>
-      <li>ターゲットを明確化：<input type="text" /></li>
-      <li>動画ジャンルを決定：<input type="text" /></li>
-      <li>成功の定義：<input type="text" /></li>
-    </ul>
-    <div class="praise" style="display: none;">🎉 よくできました！目標が明確ですね！</div>
-  </div>
+  <main>
+    <div class="step" id="step0">
+      <h2>1. STEP0：目標設定・コンセプト決め</h2>
+      <ul>
+        <li>目的を定める：<input type="text" /></li>
+        <li>ターゲットを明確化：<input type="text" /></li>
+        <li>動画ジャンルを決定：<input type="text" /></li>
+        <li>成功の定義：<input type="text" /></li>
+      </ul>
+      <div class="praise">🎉 よくできました！目標が明確ですね！</div>
+    </div>
 
-  <div class="step" id="step1">
-    <h2>2. STEP1：アイデア出し・企画</h2>
-    <ul>
-      <li>テーマ出し：<input type="text" /></li>
-      <li>タイトル案検討：<input type="text" /></li>
-      <li>構成要素リスト作成：<input type="text" /></li>
-    </ul>
-    <div class="praise" style="display: none;">✨ 素敵なアイデアですね！</div>
-  </div>
+    <div class="step" id="step1">
+      <h2>2. STEP1：アイデア出し・企画</h2>
+      <ul>
+        <li>テーマ出し：<input type="text" /></li>
+        <li>タイトル案検討：<input type="text" /></li>
+        <li>構成要素リスト作成：<input type="text" /></li>
+      </ul>
+      <div class="praise">✨ 素敵なアイデアですね！</div>
+    </div>
 
-  <div class="step" id="step2">
-    <h2>3. STEP2：台本・構成設計</h2>
-    <ul>
-      <li>大枠構成：<input type="text" /></li>
-      <li>台本執筆：<input type="text" /></li>
-      <li>セリフ原稿：<input type="text" /></li>
-    </ul>
-    <div class="praise" style="display: none;">📝 台本もばっちり！</div>
-  </div>
+    <div class="step" id="step2">
+      <h2>3. STEP2：台本・構成設計</h2>
+      <ul>
+        <li>大枠構成：<input type="text" /></li>
+        <li>台本執筆：<input type="text" /></li>
+        <li>セリフ原稿：<input type="text" /></li>
+      </ul>
+      <div class="praise">📝 台本もばっちり！</div>
+    </div>
 
-  <!-- 必要に応じてSTEP3〜STEP13も同様に追加できます -->
+    <div class="step" id="step3">
+      <h2>4. STEP3：撮影計画・準備</h2>
+      <ul>
+        <li>ロケ地選定：<input type="text" /></li>
+        <li>機材準備：<input type="text" /></li>
+        <li>スケジュール調整：<input type="text" /></li>
+      </ul>
+      <div class="praise">🎥 準備万端！プロっぽい！</div>
+    </div>
+
+    <div class="step" id="step4">
+      <h2>5. STEP4：撮影</h2>
+      <ul>
+        <li>撮影実施：<input type="text" /></li>
+        <li>カット確認：<input type="text" /></li>
+        <li>素材整理：<input type="text" /></li>
+      </ul>
+      <div class="praise">📸 ナイスショット！</div>
+    </div>
+
+    <div class="step" id="step5">
+      <h2>6. STEP5：素材整理・管理</h2>
+      <ul>
+        <li>データ保存：<input type="text" /></li>
+        <li>フォルダ整理：<input type="text" /></li>
+        <li>バックアップ：<input type="text" /></li>
+      </ul>
+      <div class="praise">🗂 整理整頓お見事！</div>
+    </div>
+
+    <div class="step" id="step6">
+      <h2>7. STEP6：編集</h2>
+      <ul>
+        <li>編集開始：<input type="text" /></li>
+        <li>BGM挿入：<input type="text" /></li>
+        <li>字幕追加：<input type="text" /></li>
+      </ul>
+      <div class="praise">✂️ 編集スキルアップ中！</div>
+    </div>
+
+    <div class="step" id="step7">
+      <h2>8. STEP7：レビュー・修正</h2>
+      <ul>
+        <li>プレビュー確認：<input type="text" /></li>
+        <li>フィードバック収集：<input type="text" /></li>
+        <li>修正実施：<input type="text" /></li>
+      </ul>
+      <div class="praise">🔍 細かい気配りが光ってる！</div>
+    </div>
+
+    <div class="step" id="step8">
+      <h2>9. STEP8：書き出し</h2>
+      <ul>
+        <li>形式設定：<input type="text" /></li>
+        <li>画質調整：<input type="text" /></li>
+        <li>最終保存：<input type="text" /></li>
+      </ul>
+      <div class="praise">📦 完成間近！</div>
+    </div>
+
+    <div class="step" id="step9">
+      <h2>10. STEP9：サムネイル・説明文作成</h2>
+      <ul>
+        <li>サムネイル制作：<input type="text" /></li>
+        <li>説明文作成：<input type="text" /></li>
+        <li>タグ設定：<input type="text" /></li>
+      </ul>
+      <div class="praise">🖼 センスが光ってます！</div>
+    </div>
+
+    <div class="step" id="step10">
+      <h2>11. STEP10：公開準備</h2>
+      <ul>
+        <li>公開日時設定：<input type="text" /></li>
+        <li>再チェック：<input type="text" /></li>
+        <li>チャンネル設定：<input type="text" /></li>
+      </ul>
+      <div class="praise">⏱ もうすぐ公開！ドキドキ！</div>
+    </div>
+
+    <div class="step" id="step11">
+      <h2>12. STEP11：公開</h2>
+      <ul>
+        <li>アップロード：<input type="text" /></li>
+        <li>SNS共有：<input type="text" /></li>
+        <li>告知完了：<input type="text" /></li>
+      </ul>
+      <div class="praise">📢 世界へ発信！よくがんばった！</div>
+    </div>
+
+    <div class="step" id="step12">
+      <h2>13. STEP12：分析・改善</h2>
+      <ul>
+        <li>再生数分析：<input type="text" /></li>
+        <li>コメント確認：<input type="text" /></li>
+        <li>改善点整理：<input type="text" /></li>
+      </ul>
+      <div class="praise">📊 次に活かす姿勢が素晴らしい！</div>
+    </div>
+
+    <div class="step" id="step13">
+      <h2>14. STEP13：継続計画</h2>
+      <ul>
+        <li>次回のアイデア：<input type="text" /></li>
+        <li>投稿スケジュール更新：<input type="text" /></li>
+        <li>振り返り記録：<input type="text" /></li>
+      </ul>
+      <div class="praise">🔄 続ける力が本物！</div>
+    </div>
+  </main>
 
   <script>
     document.querySelectorAll('.step').forEach(step => {
       const inputs = step.querySelectorAll('input');
+      const praise = step.querySelector('.praise');
       inputs.forEach(input => {
         input.addEventListener('input', () => {
           const allFilled = [...inputs].every(i => i.value.trim() !== '');
-          const praise = step.querySelector('.praise');
           praise.style.display = allFilled ? 'block' : 'none';
         });
       });
