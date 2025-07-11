@@ -5,25 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>保存された入力一覧</title>
   <link rel="stylesheet" href="style.css" />
-  
-<script>
-  function deleteRecord(index) {
-    const savedData = JSON.parse(localStorage.getItem('homerareData') || '[]');
-    if (confirm('この記録を削除しますか？')) {
-      savedData.splice(index, 1);
-      localStorage.setItem('homerareData', JSON.stringify(savedData));
-      location.reload(); // ページを再読み込みして反映
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #fffdf8;
     }
-  }
-</script>
 
+    h1 {
+      color: #ff6600;
+    }
+
+    .record {
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 6px 12px;
+      background-color: #ffdddd;
+      border: 1px solid #ff6666;
+      color: #333;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    button:hover {
+      background-color: #ffcccc;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+  <script>
+    function deleteRecord(index) {
+      const savedData = JSON.parse(localStorage.getItem('homerareData') || '[]');
+      if (confirm('この記録を削除しますか？')) {
+        savedData.splice(index, 1);
+        localStorage.setItem('homerareData', JSON.stringify(savedData));
+        location.reload(); // ページを再読み込みして反映
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
     <h1>🗂 保存された過去の入力一覧</h1>
   </header>
+
   <main>
     <div id="saved-records"></div>
+
     <script>
       const container = document.getElementById("saved-records");
       const savedData = JSON.parse(localStorage.getItem("homerareData") || "[]");
@@ -34,9 +71,16 @@
         savedData.forEach((entry, index) => {
           const item = document.createElement("div");
           item.className = "record";
+
+          // 整形して表示（keyとvalueを1行ずつ）
+          const formatted = Object.entries(entry)
+            .map(([key, val]) => `<strong>${key}</strong>: ${val}`)
+            .join("<br>");
+
           item.innerHTML = `
             <h3>📝 記録 ${index + 1}</h3>
-            <pre>${JSON.stringify(entry, null, 2)}</pre>
+            <div>${formatted}</div>
+            <br />
             <button onclick="deleteRecord(${index})">🗑 削除</button>
           `;
           container.appendChild(item);
