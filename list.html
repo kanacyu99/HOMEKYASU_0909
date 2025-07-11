@@ -8,38 +8,38 @@
   <style>
     body {
       font-family: sans-serif;
+      background-color: #fffdf8;
       padding: 2rem;
-      background: #fffdf8;
     }
-
     h1 {
       color: #ff6600;
     }
-
     .record {
-      border: 1px solid #ccc;
       background: #fff;
+      border: 1px solid #ccc;
       border-radius: 8px;
       padding: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
-
+    .record h3 {
+      margin-top: 0;
+    }
+    .record ul {
+      padding-left: 1.2rem;
+    }
+    .record li {
+      margin-bottom: 0.4rem;
+    }
     button {
-      padding: 6px 12px;
-      background-color: #ffdddd;
+      margin-top: 0.5rem;
+      background: #ffdddd;
       border: 1px solid #ff6666;
-      color: #333;
-      cursor: pointer;
       border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
     }
-
     button:hover {
       background-color: #ffcccc;
-    }
-
-    pre {
-      white-space: pre-wrap;
-      word-wrap: break-word;
     }
   </style>
   <script>
@@ -48,44 +48,36 @@
       if (confirm('この記録を削除しますか？')) {
         savedData.splice(index, 1);
         localStorage.setItem('homerareData', JSON.stringify(savedData));
-        location.reload(); // ページを再読み込みして反映
+        location.reload(); // 削除後に再読み込み
       }
     }
   </script>
 </head>
 <body>
-  <header>
-    <h1>🗂 保存された過去の入力一覧</h1>
-  </header>
+  <h1>🗂 保存された過去の入力一覧</h1>
+  <div id="saved-records"></div>
 
-  <main>
-    <div id="saved-records"></div>
+  <script>
+    const container = document.getElementById("saved-records");
+    const savedData = JSON.parse(localStorage.getItem("homerareData") || "[]");
 
-    <script>
-      const container = document.getElementById("saved-records");
-      const savedData = JSON.parse(localStorage.getItem("homerareData") || "[]");
+    if (savedData.length === 0) {
+      container.innerHTML = "<p>保存された記録はまだありません。</p>";
+    } else {
+      savedData.forEach((entry, index) => {
+        const div = document.createElement("div");
+        div.className = "record";
 
-      if (savedData.length === 0) {
-        container.innerHTML = "<p>保存された記録はまだありません。</p>";
-      } else {
-        savedData.forEach((entry, index) => {
-          const item = document.createElement("div");
-          item.className = "record";
-
-          const formatted = Object.entries(entry)
-            .map(([key, val]) => `<strong>${key}</strong>: ${val}`)
-            .join("<br>");
-
-          item.innerHTML = `
-            <h3>📝 記録 ${index + 1}</h3>
-            <div>${formatted}</div>
-            <br />
-            <button onclick="deleteRecord(${index})">🗑 削除</button>
-          `;
-          container.appendChild(item);
+        let html = `<h3>📝 記録 ${index + 1}</h3><ul>`;
+        Object.entries(entry).forEach(([key, value]) => {
+          html += `<li><strong>${key}:</strong> ${value}</li>`;
         });
-      }
-    </script>
-  </main>
+        html += `</ul><button onclick="deleteRecord(${index})">🗑 削除</button>`;
+
+        div.innerHTML = html;
+        container.appendChild(div);
+      });
+    }
+  </script>
 </body>
 </html>
