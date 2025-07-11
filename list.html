@@ -34,11 +34,11 @@
         savedData.forEach((entry, index) => {
           const item = document.createElement("div");
           item.className = "record";
-          item.innerHTML = 
+          item.innerHTML = `
             <h3>📝 記録 ${index + 1}</h3>
             <pre>${JSON.stringify(entry, null, 2)}</pre>
             <button onclick="deleteRecord(${index})">🗑 削除</button>
-          ;
+          `;
           container.appendChild(item);
         });
       }
