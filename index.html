@@ -4,73 +4,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ほめキャス</title>
+  <title>動画作成タスクリスト</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <header>
-    <h1>ほめキャス 🧡</h1>
+    <h1>📔 動画作成タスクリスト</h1>
+    <p id="progress-message">✅ 現在の達成数：0 / 14</p>
   </header>
 
   <main>
-    <h2>📓 動画作成タスクリスト</h2>
-    <p id="progress-message">✅ 現在の達成数：0 / 14</p>
-
     <ol>
-      <!-- STEP0 -->
       <li>
-        <h3>STEP0：目標設定・コンセプト決め</h3>
+        <h2>STEP0：目標設定・コンセプト決め</h2>
         <ul>
-          <li>目的を定める：<input type="text" class="step0" /></li>
-          <li>ターゲットを明確化：<input type="text" class="step0" /></li>
-          <li>動画ジャンルを決定：<input type="text" class="step0" /></li>
-          <li>成功の定義：<input type="text" class="step0" /></li>
+          <li>目的を定める：<input /></li>
+          <li>ターゲットを明確化：<input /></li>
+          <li>動画ジャンルを決定：<input /></li>
+          <li>成功の定義：<input /></li>
         </ul>
       </li>
 
-      <!-- STEP1〜STEP12 繰り返し構造 -->
-      <script>
-        const steps = [
-          "アイデア出し・企画", "台本・構成設計", "撮影計画・準備", "撮影",
-          "素材整理・管理", "編集（ポストプロダクション）", "レビュー・修正",
-          "書き出し（レンダリング）", "サムネイル・説明文作成", "公開準備",
-          "公開", "分析・改善"
-        ];
-        steps.forEach((title, i) => {
-          document.write(`
-            <li>
-              <h3>STEP${i + 1}：${title}</h3>
-              <ul>
-                <li>詳細項目1：<input type="text" class="step${i + 1}" /></li>
-                <li>詳細項目2：<input type="text" class="step${i + 1}" /></li>
-                <li>詳細項目3：<input type="text" class="step${i + 1}" /></li>
-              </ul>
-            </li>
-          `);
-        });
-      </script>
-
-      <!-- STEP13 -->
       <li>
-        <h3>STEP13：継続計画</h3>
+        <h2>STEP1：アイデア出し・企画</h2>
         <ul>
-          <li>次回アイデアメモ：<input type="text" class="step13" /></li>
-          <li>投稿カレンダー更新：<input type="text" class="step13" /></li>
-          <li>モチベーション管理：<input type="text" class="step13" /></li>
-          <li>チーム振り返り：<input type="text" class="step13" /></li>
+          <li>テーマ出し：<input /></li>
+          <li>タイトル案：<input /></li>
+          <li>方向性決定：<input /></li>
+          <li>差別化ポイント：<input /></li>
+          <li>構成要素リスト：<input /></li>
+          <li>競合・参考動画リサーチ：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP2：台本・構成設計</h2>
+        <ul>
+          <li>大柄構成：<input /></li>
+          <li>詳細な台本：<input /></li>
+          <li>セリフ：<input /></li>
+          <li>ストーリーボード：<input /></li>
+          <li>カット割計画：<input /></li>
+          <li>BGM/効果音イメージ：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP3：撮影計画・準備</h2>
+        <ul>
+          <li>撮影スケジュール：<input /></li>
+          <li>ロケーション：<input /></li>
+          <li>照明プラン：<input /></li>
+          <li>カメラアングル：<input /></li>
+          <li>撮影機材：<input /></li>
+          <li>小道具・衣装：<input /></li>
+          <li>キャスト・スタッフ：<input /></li>
+          <li>セリフ練習：<input /></li>
+          <li>撮影許可：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP4：撮影</h2>
+        <ul>
+          <li>セットアップ：<input /></li>
+          <li>音声チェック：<input /></li>
+          <li>テスト撮影：<input /></li>
+          <li>本番撮影：<input /></li>
+          <li>進行管理：<input /></li>
+          <li>バックアップ：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP5：組み立て・管理</h2>
+        <ul>
+          <li>フッテージ取り込み：<input /></li>
+          <li>ファイル名整理：<input /></li>
+          <li>バックアップ：<input /></li>
+          <li>良いテイク：<input /></li>
+          <li>必要な素材タグ：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP6：編集</h2>
+        <ul>
+          <li>プロジェクト作成：<input /></li>
+          <li>カット編集：<input /></li>
+          <li>シーン構成：<input /></li>
+          <li>音声編集：<input /></li>
+          <li>BGM/効果音：<input /></li>
+          <li>テロップ：<input /></li>
+          <li>グラフィック：<input /></li>
+          <li>トランジション：<input /></li>
+          <li>色調：<input /></li>
+          <li>特殊効果：<input /></li>
+          <li>仮書き出し：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP7：レビュー：</h2>
+        <ul>
+          <li>自分で確認：<input /></li>
+          <li>チーム確認：<input /></li>
+          <li>フィードバック：<input /></li>
+          <li>修正：<input /></li>
+          <li>最終チェック：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP8：書き出し</h2>
+        <ul>
+          <li>解像度：<input /></li>
+          <li>コーデック：<input /></li>
+          <li>ファイルサイズ：<input /></li>
+          <li>書き出し実行：<input /></li>
+          <li>再生確認：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP9：サムネイル</h2>
+        <ul>
+          <li>デザイン：<input /></li>
+          <li>タイトル：<input /></li>
+          <li>SEOキーワード：<input /></li>
+          <li>説明文：<input /></li>
+          <li>タグ：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP10：公開準備</h2>
+        <ul>
+          <li>プラットフォーム：<input /></li>
+          <li>スケジュール：<input /></li>
+          <li>チャンネル管理：<input /></li>
+          <li>公開前確認：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP11：公開</h2>
+        <ul>
+          <li>動画アップロード：<input /></li>
+          <li>公開設定：<input /></li>
+          <li>SNS告知：<input /></li>
+          <li>メール配信：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP12：分析・改善</h2>
+        <ul>
+          <li>観看データ：<input /></li>
+          <li>反応確認：<input /></li>
+          <li>反省点：<input /></li>
+          <li>フィードバック：<input /></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>STEP13：続ける計画</h2>
+        <ul>
+          <li>次回アイデア：<input /></li>
+          <li>カレンダー：<input /></li>
+          <li>モチベ管理：<input /></li>
+          <li>振り返り：<input /></li>
         </ul>
       </li>
     </ol>
 
-    <button onclick="saveInput()">💾 入力内容を保存する</button>
+    <button onclick="saveInputs()">📂 入力内容を保存する</button>
   </main>
-
-  <footer>
-    <p>&copy; 2024 ほめキャス</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
-
 </html>
