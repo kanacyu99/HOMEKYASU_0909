@@ -5,91 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ほめキャス</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fffaf3;
+      padding: 1em;
+    }
+    h2 {
+      color: #f26522;
+    }
+    .step {
+      margin-bottom: 2em;
+    }
+    .praise {
+      margin-top: 0.5em;
+      color: green;
+      font-weight: bold;
+    }
+    input {
+      margin: 0.2em;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>📔 ほめキャス</h1>
-    <p id="progress-message">✅ 現在の達成数：0 / 14</p>
-  </header>
+  <h1>📔 ほめキャス</h1>
 
-  <main>
-    <ol>
-      <li>
-        <h3>STEP1：目標設定・コンセプト決め</h3>
-        <textarea class="step1" placeholder="目的・ターゲット・ジャンルなどを記入"></textarea>
-      </li>
-      <li>
-        <h3>STEP2：アイデア出し・企画</h3>
-        <textarea class="step2" placeholder="タイトル案や差別化ポイントなど"></textarea>
-      </li>
-      <li>
-        <h3>STEP3：台本・構成設計</h3>
-        <textarea class="step3" placeholder="構成、台本、セリフなど"></textarea>
-      </li>
-      <li>
-        <h3>STEP4：撮影計画・準備</h3>
-        <textarea class="step4" placeholder="スケジュール・機材・ロケ地など"></textarea>
-      </li>
-      <li>
-        <h3>STEP5：撮影</h3>
-        <textarea class="step5" placeholder="本番撮影の注意点など"></textarea>
-      </li>
-      <li>
-        <h3>STEP6：素材整理・管理</h3>
-        <textarea class="step6" placeholder="ファイル名、バックアップなど"></textarea>
-      </li>
-      <li>
-        <h3>STEP7：編集（ポストプロダクション）</h3>
-        <textarea class="step7" placeholder="編集内容やエフェクト、字幕など"></textarea>
-      </li>
-      <li>
-        <h3>STEP8：レビュー・修正</h3>
-        <textarea class="step8" placeholder="フィードバック内容と修正点など"></textarea>
-      </li>
-      <li>
-        <h3>STEP9：書き出し（レンダリング）</h3>
-        <textarea class="step9" placeholder="書き出しの設定や確認内容など"></textarea>
-      </li>
-      <li>
-        <h3>STEP10：サムネイル・説明文作成</h3>
-        <textarea class="step10" placeholder="サムネイル案やSEOキーワードなど"></textarea>
-      </li>
-      <li>
-        <h3>STEP11：公開準備</h3>
-        <textarea class="step11" placeholder="スケジュールやプラットフォームなど"></textarea>
-      </li>
-      <li>
-        <h3>STEP12：公開</h3>
-        <textarea class="step12" placeholder="SNS告知やアップロード状況など"></textarea>
-      </li>
-      <li>
-        <h3>STEP13：分析・改善</h3>
-        <textarea class="step13" placeholder="視聴データ分析・反省点など"></textarea>
-      </li>
-      <li>
-        <h3>STEP14：継続計画</h3>
-        <textarea class="step14" placeholder="次回アイデア・モチベ維持など"></textarea>
-      </li>
-    </ol>
+  <div class="step" id="step0">
+    <h2>1. STEP0：目標設定・コンセプト決め</h2>
+    <ul>
+      <li>目的を定める：<input type="text" /></li>
+      <li>ターゲットを明確化：<input type="text" /></li>
+      <li>動画ジャンルを決定：<input type="text" /></li>
+      <li>成功の定義：<input type="text" /></li>
+    </ul>
+    <div class="praise" style="display: none;">🎉 よくできました！目標が明確ですね！</div>
+  </div>
 
-    <button onclick="saveInputs()">💾 入力内容を保存する</button>
-    <p><a href="list.html">📂 保存された記録を見る</a></p>
-  </main>
+  <div class="step" id="step1">
+    <h2>2. STEP1：アイデア出し・企画</h2>
+    <ul>
+      <li>テーマ出し：<input type="text" /></li>
+      <li>タイトル案検討：<input type="text" /></li>
+      <li>構成要素リスト作成：<input type="text" /></li>
+    </ul>
+    <div class="praise" style="display: none;">✨ 素敵なアイデアですね！</div>
+  </div>
+
+  <div class="step" id="step2">
+    <h2>3. STEP2：台本・構成設計</h2>
+    <ul>
+      <li>大枠構成：<input type="text" /></li>
+      <li>台本執筆：<input type="text" /></li>
+      <li>セリフ原稿：<input type="text" /></li>
+    </ul>
+    <div class="praise" style="display: none;">📝 台本もばっちり！</div>
+  </div>
+
+  <!-- 必要に応じてSTEP3〜STEP13も同様に追加できます -->
 
   <script>
-    function saveInputs() {
-      const data = {};
-      for (let i = 1; i <= 14; i++) {
-        const inputs = document.querySelectorAll(`.step${i}`);
-        data[`STEP${i}`] = Array.from(inputs).map(input => input.value.trim());
-      }
-
-      const saved = JSON.parse(localStorage.getItem("homerareData") || "[]");
-      saved.push(data);
-      localStorage.setItem("homerareData", JSON.stringify(saved));
-
-      alert("✅ 入力内容を保存しました！");
-    }
+    document.querySelectorAll('.step').forEach(step => {
+      const inputs = step.querySelectorAll('input');
+      inputs.forEach(input => {
+        input.addEventListener('input', () => {
+          const allFilled = [...inputs].every(i => i.value.trim() !== '');
+          const praise = step.querySelector('.praise');
+          praise.style.display = allFilled ? 'block' : 'none';
+        });
+      });
+    });
   </script>
 </body>
 </html>
