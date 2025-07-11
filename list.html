@@ -1,84 +1,25 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ほめキャス</title>
+  <title>動画作成タスクリスト</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
-    <h1>📚 動画作成タスクリスト</h1>
-    <p>✅ 現在の達成数：<span id="progress-count">0</span> / 14</p>
+    <h1>📔 動画作成タスクリスト</h1>
+    <p id="progress-message">✅ 現在の達成数：0 / 14</p>
   </header>
+
   <main>
-    <ol id="task-list">
-      <li>
-        <h2>STEP0：目標設定・コンセプト決め</h2>
-        <ul>
-          <li>目的を定める：<input class="step0" /></li>
-          <li>ターゲットを明確化：<input class="step0" /></li>
-          <li>動画ジャンルを決定：<input class="step0" /></li>
-          <li>成功の定義：<input class="step0" /></li>
-        </ul>
-      </li>
-
-      <!-- STEP1～STEP13 -->
-      <script>
-        const steps = [
-          "アイデア出し・企画",
-          "台本・構成設計",
-          "撮影計画・準備",
-          "撮影",
-          "素材整理・管理",
-          "編集（ポストプロダクション）",
-          "レビュー・修正",
-          "書き出し（レンダリング）",
-          "サムネイル・説明文作成",
-          "公開準備",
-          "公開",
-          "分析・改善"
-        ];
-
-        const stepDescriptions = [
-          ["テーマ出し（複数案ブレスト）", "タイトル案検討", "差別化ポイントを整理"],
-          ["大枠構成を決める", "詳細な台本執筆", "セリフ・ナレーション原稿作成"],
-          ["撮影スケジュール決定", "ロケーション選定", "照明プラン検討"],
-          ["セットアップ", "音声チェック", "本番撮影"],
-          ["フッテージ取り込み", "ファイル名整理", "良いテイクの選定"],
-          ["編集プロジェクト作成", "カット編集", "BGM/字幕挿入"],
-          ["自分で確認", "チームに確認依頼", "修正実施"],
-          ["解像度設定", "コーデック選択", "書き出し実行"],
-          ["サムネイル作成", "タイトル最適化", "タグ設定"],
-          ["プラットフォーム選定", "スケジュール設定", "公開前最終確認"],
-          ["動画アップロード", "公開設定", "SNS告知"],
-          ["視聴データ分析", "コメント確認", "反省点整理"]
-        ];
-
-        steps.forEach((title, idx) => {
-          const li = document.createElement("li");
-          li.innerHTML = `
-            <h2>STEP${idx + 1}：${title}</h2>
-            <ul>
-              ${stepDescriptions[idx].map((desc, j) => `<li>${desc}：<input class="step${idx + 1}" /></li>`).join("")}
-            </ul>
-          `;
-          document.getElementById("task-list").appendChild(li);
-        });
-      </script>
-
-      <li>
-        <h2>STEP13：継続計画</h2>
-        <ul>
-          <li>次回アイデアメモ：<input class="step13" /></li>
-          <li>投稿カレンダー更新：<input class="step13" /></li>
-          <li>モチベーション管理：<input class="step13" /></li>
-          <li>チーム振り返り：<input class="step13" /></li>
-        </ul>
-      </li>
-    </ol>
+    <ol id="task-list"></ol>
     <button onclick="saveInputs()">💾 入力内容を保存する</button>
   </main>
+
   <script src="script.js"></script>
 </body>
+
 </html>
