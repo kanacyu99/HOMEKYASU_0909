@@ -61,3 +61,20 @@ button {
 button:hover {
   background-color: #e06d00;
 }
+#praise-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffe8a3;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 1000;
+}
+
+#praise-message.show {
+  opacity: 1;
+}
