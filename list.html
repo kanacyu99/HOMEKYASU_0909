@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>動画作成タスクリスト</title>
+  <title>保存された入力一覧</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
   <header>
-    <h1>📔 動画作成タスクリスト</h1>
-    <p id="progress-message">✅ 現在の達成数：0 / 14</p>
+    <h1>🗂 保存された過去の入力一覧</h1>
   </header>
-
   <main>
-    <ol id="task-list"></ol>
-    <button onclick="saveInputs()">💾 入力内容を保存する</button>
+    <div id="saved-records"></div>
+
+    <script>
+      const container = document.getElementById("saved-records");
+      const savedData = JSON.parse(localStorage.getItem("homerareData") || "[]");
+
+      function deleteRecord(index) {
+        if (confirm("この記録を削除しますか？")) {
+          savedData.splice(index, 1);
+          localStorage.setItem("homerareData", JSON.stringify(savedData));
+          location.reload();
+        }
+      }
+
+      if (savedData.length === 0) {
+        container.innerHTML = "<p>保存された記録はまだありません。</p>";
+      } else {
+        savedData.forEach((entry, index) => {
+          const item = document.createElement("div");
+          item.className = "record";
+          item.innerHTML = `
+            <h3>📝 記録 ${index + 1}</h3>
+            <pre>${JSON.stringify(entry, null, 2)}</pre>
+            <button onclick="deleteRecord(${index})">🗑 削除</button>
+          `;
+          container.appendChild(item);
+        });
+      }
+    </script>
   </main>
-
-  <script src="script.js"></script>
 </body>
-
 </html>
