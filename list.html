@@ -48,7 +48,7 @@
       if (confirm('この記録を削除しますか？')) {
         savedData.splice(index, 1);
         localStorage.setItem('homerareData', JSON.stringify(savedData));
-        location.reload(); // 削除後に再読み込み
+        location.reload();
       }
     }
   </script>
@@ -56,7 +56,6 @@
 <body>
   <h1>🗂 保存された過去の入力一覧</h1>
   <div id="saved-records"></div>
-
   <script>
     const container = document.getElementById("saved-records");
     const savedData = JSON.parse(localStorage.getItem("homerareData") || "[]");
@@ -69,9 +68,16 @@
         div.className = "record";
 
         let html = `<h3>📝 記録 ${index + 1}</h3><ul>`;
-        Object.entries(entry).forEach(([key, value]) => {
-          html += `<li><strong>${key}:</strong> ${value}</li>`;
-        });
+        for (let i = 0; i <= 13; i++) {
+          const stepKey = `step${i}`;
+          if (entry[stepKey]) {
+            html += `<li><strong>STEP${i}:</strong><ul>`;
+            Object.entries(entry[stepKey]).forEach(([k, v]) => {
+              html += `<li>${k}: ${v}</li>`;
+            });
+            html += `</ul></li>`;
+          }
+        }
         html += `</ul><button onclick="deleteRecord(${index})">🗑 削除</button>`;
 
         div.innerHTML = html;
