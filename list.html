@@ -5,41 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>保存された入力一覧</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1em;
+    }
+    .record {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1em;
+      margin-bottom: 1em;
+      background-color: #f9f9f9;
+    }
+    .record h3 {
+      margin-top: 0;
+    }
+    .record pre {
+      background-color: #fff;
+      padding: 0.5em;
+      overflow-x: auto;
+    }
+    .delete-btn {
+      background-color: #ff6666;
+      border: none;
+      padding: 0.5em 1em;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      background-color: #cc0000;
+    }
+  </style>
+  <script>
+    function deleteRecord(index) {
+      const savedData = JSON.parse(localStorage.getItem('homerareData') || '[]');
+      if (confirm('この記録を削除しますか？')) {
+        savedData.splice(index, 1);
+        localStorage.setItem('homerareData', JSON.stringify(savedData));
+        location.reload(); // ページを再読み込みして反映
+      }
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>🗂 保存された過去の入力一覧</h1>
-  </header>
-  <main>
-    <div id="saved-records"></div>
+  <h1>🗂 保存された入力一覧</h1>
+  <div id="saved-records"></div>
 
-    <script>
-      const container = document.getElementById("saved-records");
-      const savedData = JSON.parse(localStorage.getItem("homerareData") || "[]");
+  <script>
+    const container = document.getElementById("saved-records");
+    const savedData = JSON.parse(localStorage.getItem("homerareData") || "[]");
 
-      function deleteRecord(index) {
-        if (confirm("この記録を削除しますか？")) {
-          savedData.splice(index, 1);
-          localStorage.setItem("homerareData", JSON.stringify(savedData));
-          location.reload();
-        }
-      }
-
-      if (savedData.length === 0) {
-        container.innerHTML = "<p>保存された記録はまだありません。</p>";
-      } else {
-        savedData.forEach((entry, index) => {
-          const item = document.createElement("div");
-          item.className = "record";
-          item.innerHTML = `
-            <h3>📝 記録 ${index + 1}</h3>
-            <pre>${JSON.stringify(entry, null, 2)}</pre>
-            <button onclick="deleteRecord(${index})">🗑 削除</button>
-          `;
-          container.appendChild(item);
-        });
-      }
-    </script>
-  </main>
+    if (savedData.length === 0) {
+      container.innerHTML = "<p>保存された記録はまだありません。</p>";
+    } else {
+      savedData.forEach((entry, index) => {
+        const item = document.createElement("div");
+        item.className = "record";
+        item.innerHTML = `
+          <h3>📝 記録 ${index + 1}</h3>
+          <pre>${JSON.stringify(entry, null, 2)}</pre>
+          <button class="delete-btn" onclick="deleteRecord(${index})">🗑 削除</button>
+        `;
+        container.appendChild(item);
+      });
+    }
+  </script>
 </body>
 </html>
