@@ -1,7 +1,7 @@
-const tasks = [
+const steps = [
   {
     title: "STEP1：目標設定・コンセプト決め",
-    items: [
+    tasks: [
       "目的を定める（誰に、何を、どんな感情を与えるか）",
       "視聴者ターゲットを明確化",
       "動画ジャンルを決定（解説、Vlog、広告、レビュー、ショート動画など）",
@@ -10,7 +10,7 @@ const tasks = [
   },
   {
     title: "STEP2：アイデア出し・企画",
-    items: [
+    tasks: [
       "テーマ出し（複数案ブレスト）",
       "タイトル案検討",
       "方向性決定",
@@ -21,7 +21,7 @@ const tasks = [
   },
   {
     title: "STEP3：台本・構成設計",
-    items: [
+    tasks: [
       "大枠構成を決める（導入・本編・まとめ・CTAなど）",
       "詳細な台本執筆",
       "セリフ・ナレーション原稿作成",
@@ -32,7 +32,7 @@ const tasks = [
   },
   {
     title: "STEP4：撮影計画・準備",
-    items: [
+    tasks: [
       "撮影スケジュール決定",
       "ロケーション選定",
       "照明プラン検討",
@@ -46,7 +46,7 @@ const tasks = [
   },
   {
     title: "STEP5：撮影",
-    items: [
+    tasks: [
       "セットアップ（照明・カメラ設定・ホワイトバランス）",
       "音声チェック",
       "テスト撮影",
@@ -57,7 +57,7 @@ const tasks = [
   },
   {
     title: "STEP6：素材整理・管理",
-    items: [
+    tasks: [
       "フッテージ取り込み",
       "ファイル名整理",
       "バックアップ作成",
@@ -67,7 +67,7 @@ const tasks = [
   },
   {
     title: "STEP7：編集（ポストプロダクション）",
-    items: [
+    tasks: [
       "編集用プロジェクト作成",
       "カット編集（無駄を省く）",
       "シーン構成調整",
@@ -83,7 +83,7 @@ const tasks = [
   },
   {
     title: "STEP8：レビュー・修正",
-    items: [
+    tasks: [
       "自分で確認",
       "チームやクライアントに確認依頼",
       "フィードバック収集",
@@ -93,7 +93,7 @@ const tasks = [
   },
   {
     title: "STEP9：書き出し（レンダリング）",
-    items: [
+    tasks: [
       "解像度・フレームレート設定",
       "コーデック選択（H.264, ProResなど）",
       "ファイルサイズ最適化",
@@ -103,7 +103,7 @@ const tasks = [
   },
   {
     title: "STEP10：サムネイル・説明文作成",
-    items: [
+    tasks: [
       "キャッチーなサムネイルデザイン",
       "タイトル最適化",
       "SEOキーワード検討",
@@ -113,7 +113,7 @@ const tasks = [
   },
   {
     title: "STEP11：公開準備",
-    items: [
+    tasks: [
       "プラットフォーム選定（YouTube, TikTokなど）",
       "スケジュール設定",
       "チャンネル管理（再生リストなど）",
@@ -122,7 +122,7 @@ const tasks = [
   },
   {
     title: "STEP12：公開",
-    items: [
+    tasks: [
       "動画アップロード",
       "公開設定（公開、限定、予約）",
       "SNSやブログで告知",
@@ -131,7 +131,7 @@ const tasks = [
   },
   {
     title: "STEP13：分析・改善",
-    items: [
+    tasks: [
       "視聴データ分析（再生数、視聴維持率など）",
       "コメント・反応確認",
       "反省点整理",
@@ -140,38 +140,37 @@ const tasks = [
   }
 ];
 
-function renderTasks() {
+const compliments = [
+  "すばらしい着実な一歩！",
+  "どんどん進んでるね、最高！",
+  "今日の自分を誇ろう！",
+  "いいぞ、その調子！",
+  "小さな達成が未来を変える✨",
+  "応援してるよ、がんばったね！"
+];
+
+function createTaskList() {
   const list = document.getElementById("taskList");
-  tasks.forEach((step, index) => {
+  list.innerHTML = "";
+
+  steps.forEach((step, index) => {
     const li = document.createElement("li");
-    const stepId = `step${index + 1}`;
     li.innerHTML = `<h3>${step.title}</h3>`;
-    const ul = document.createElement("ul");
-    step.items.forEach((item, i) => {
-      const inputId = `${stepId}-item${i}`;
-      const liItem = document.createElement("li");
-      liItem.innerHTML = `
-        <label for="${inputId}">${item}</label><br/>
-        <input type="text" id="${inputId}" name="${inputId}" class="${stepId}" /><br/>
-      `;
-      ul.appendChild(liItem);
+
+    step.tasks.forEach((task, tIndex) => {
+      const textarea = document.createElement("textarea");
+      textarea.placeholder = task;
+      textarea.className = `step${index}`;
+      li.appendChild(textarea);
     });
-    li.appendChild(ul);
+
     list.appendChild(li);
   });
-}
 
-function saveInputs() {
-  const inputs = document.querySelectorAll("input");
-  const data = {};
-  inputs.forEach((input) => {
-    data[input.id] = input.value;
-  });
-
-  const saved = JSON.parse(localStorage.getItem("homerareData") || "[]");
-  saved.push(data);
-  localStorage.setItem("homerareData", JSON.stringify(saved));
-  alert("保存しました🎉");
+  // 褒めコメント表示エリア追加
+  const praiseDiv = document.createElement("div");
+  praiseDiv.id = "praise-message";
+  document.body.appendChild(praiseDiv);
 }
 
 function checkStepCompletion(stepNumber) {
@@ -181,26 +180,55 @@ function checkStepCompletion(stepNumber) {
 
 function updateProgress() {
   let completed = 0;
-  for (let i = 1; i <= tasks.length; i++) {
+  for (let i = 0; i < steps.length; i++) {
     if (checkStepCompletion(i)) {
       completed++;
     }
   }
+
   const progressMessage = document.getElementById("progress-message");
-  progressMessage.textContent = `✅ 現在の達成数：${completed} / ${tasks.length}`;
+  progressMessage.textContent = `✅ 現在の達成数：${completed} / ${steps.length}`;
+
+  // 褒めコメント表示
+  if (completed > 0 && completed !== updateProgress.lastShown) {
+    showPraise();
+    updateProgress.lastShown = completed;
+  }
+}
+updateProgress.lastShown = 0;
+
+function showPraise() {
+  const praise = document.getElementById("praise-message");
+  const comment = compliments[Math.floor(Math.random() * compliments.length)];
+  praise.textContent = comment;
+  praise.classList.add("show");
+
+  setTimeout(() => {
+    praise.classList.remove("show");
+  }, 3000);
 }
 
-function attachListeners() {
-  for (let i = 1; i <= tasks.length; i++) {
-    const inputs = document.querySelectorAll(`.step${i}`);
-    inputs.forEach((input) => {
-      input.addEventListener("input", updateProgress);
-    });
-  }
+function saveInputs() {
+  const inputs = document.querySelectorAll("textarea");
+  const values = Array.from(inputs).map(i => i.value);
+  localStorage.setItem("homerareInputs", JSON.stringify(values));
+  alert("保存しました！");
+}
+
+function loadInputs() {
+  const saved = JSON.parse(localStorage.getItem("homerareInputs") || "[]");
+  const inputs = document.querySelectorAll("textarea");
+  inputs.forEach((input, i) => {
+    if (saved[i]) input.value = saved[i];
+  });
   updateProgress();
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  renderTasks();
-  attachListeners();
+  createTaskList();
+  loadInputs();
+
+  document.querySelectorAll("textarea").forEach(textarea => {
+    textarea.addEventListener("input", updateProgress);
+  });
 });
