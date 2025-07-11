@@ -8,37 +8,20 @@
 </head>
 <body>
   <header>
-    <h1>📔 ほめキャス</h1>
+    <h1>ほめキャス 🧡</h1>
     <p id="progress-message">✅ 現在の達成数：0 / 13</p>
   </header>
 
   <main>
-    <form id="task-form">
-      <ol>
-        <li>
-          <h2>STEP1：目標設定・コンセプト決め</h2>
-          <input class="step1" type="text" placeholder="目的を定める" />
-          <input class="step1" type="text" placeholder="ターゲットを明確化" />
-          <input class="step1" type="text" placeholder="動画ジャンルを決定" />
-          <input class="step1" type="text" placeholder="成功の定義" />
-        </li>
-
-        <!-- STEP2〜STEP12 略。必要に応じてコピーして追加してください -->
-
-        <li>
-          <h2>STEP13：継続計画</h2>
-          <input class="step13" type="text" placeholder="次回動画のアイデアメモ" />
-          <input class="step13" type="text" placeholder="投稿カレンダー更新" />
-          <input class="step13" type="text" placeholder="モチベーション管理" />
-          <input class="step13" type="text" placeholder="チームとの振り返り" />
-        </li>
-      </ol>
-
-      <button type="button" onclick="saveInputs()">💾 入力内容を保存</button>
-      <button type="button" onclick="loadInputs()">📂 入力内容を呼び出す</button>
-      <button type="button" onclick="clearSaved()">🗑 保存データを削除</button>
+    <form id="taskForm">
+      <ol id="taskList"></ol>
+      <button type="button" onclick="saveInputs()">💾 入力内容を保存する</button>
     </form>
   </main>
+
+  <footer>
+    <p>&copy; 2024 ほめキャス</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
